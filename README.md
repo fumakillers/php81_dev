@@ -2,7 +2,7 @@
 
 Docker Desktop for Windows.  
 (Use the WSL 2 based engine)  
-Nginx 1.25.2 & PHP 8.1 & Xdebug 3.2.2 & MySQL 8.0.34.  
+Nginx 1.25.2 & PHP 8.2 & Xdebug 3.2.2 & MySQL 8.0.34.  
 
 ## What is this repository?
 
