@@ -1,6 +1,6 @@
-FROM php:8.1-fpm-bullseye
+FROM php:8.2-fpm-bullseye
 
-RUN pecl install xdebug-3.2.2 && \
+RUN pecl install xdebug && \
     docker-php-ext-enable xdebug
 
 RUN apt-get update && \
