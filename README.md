@@ -52,4 +52,14 @@ WSL2が入っていてDocker DesktopをWSL2 engineで動作させていること
 ```
 docker-compose up -d
 ```
+
+## etc
+
+ソースコードを直接 /volume/source に配置せず、開発時に使用するrepositoryにシンボリックリンクを貼ると環境を使い回せて便利。  
+
+1. /volume/sourceディレクトリを削除
+2. シンボリックリンクをsourceの名前で作成(用管理者権限)  
+    ex)  
+    `E:\php_dev_docker\volumes>mklink /d source e:\Repository\hogefuga`
+
 おわり
