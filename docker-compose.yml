@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  web:
+    container_name: nginx-container
+    image: nginx:1.25.2
+    ports:
+      - "80:80"
+    volumes:
+      - ./files/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      dev-network:
+        ipv4_address: 192.168.200.10
+  php:
+    container_name: php-container
+    build: ./
+    volumes:
+      - ./volumes/source/:/var/source/
+      - ./files/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    networks:
+      dev-network:
+        ipv4_address: 192.168.200.20
+#    extra_hosts:
+#      - "host.docker.internal:host-gateway"
+networks:
+  dev-network:
+    name: dev-network
+    driver: bridge
+    ipam:
+      config: 
+        - subnet: 192.168.200.0/24
