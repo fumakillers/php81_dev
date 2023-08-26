@@ -53,7 +53,3 @@ WSL2が入っていてDocker DesktopをWSL2 engineで動作させていること
 docker-compose up -d
 ```
 おわり
-
-## TODO:
-
-MySQL
