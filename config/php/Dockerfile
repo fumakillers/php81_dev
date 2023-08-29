@@ -8,4 +8,4 @@ RUN apt-get update && \
 
 RUN docker-php-ext-install pdo_mysql mysqli
 
-EXPOSE 80
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

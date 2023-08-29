@@ -2,7 +2,7 @@ version: '3.8'
 services:
   web:
     container_name: nginx-container
-    image: nginx:1.25.2
+    build: ./config/nginx
     ports:
       - "80:80"
     volumes:
@@ -10,7 +10,7 @@ services:
     environment:
       - TZ=Asia/Tokyo
     networks:
-      dev-network:
+      php-dev-network:
         ipv4_address: 192.168.200.101
   php:
     container_name: php-container
@@ -21,7 +21,7 @@ services:
     environment:
       - TZ=Asia/Tokyo
     networks:
-      dev-network:
+      php-dev-network:
         ipv4_address: 192.168.200.102
 #    extra_hosts:
 #      - "host.docker.internal:host-gateway"
@@ -40,11 +40,11 @@ services:
       - TZ=Asia/Tokyo
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
-      dev-network:
+      php-dev-network:
         ipv4_address: 192.168.200.103
 networks:
-  dev-network:
-    name: dev-network
+  php-dev-network:
+    name: php-dev-network
     driver: bridge
     ipam:
       config: 
