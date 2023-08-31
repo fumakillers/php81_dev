@@ -42,6 +42,14 @@ services:
     networks:
       php-dev-network:
         ipv4_address: 192.168.200.103
+  redis:
+    container_name: redis-container
+    build: ./config/redis
+    ports:
+      - 6379:6379
+    networks:
+      php-dev-network:
+        ipv4_address: 192.168.200.104
 networks:
   php-dev-network:
     name: php-dev-network

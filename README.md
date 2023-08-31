@@ -3,6 +3,7 @@
 Docker Desktop for Windows.  
 (Use the WSL 2 based engine)  
 Nginx 1.25.2 & PHP 8.2 & Xdebug 3.2.2 & MySQL 8.0.34.  
+add redis.
 
 ## What is this repository?
 
@@ -46,6 +47,27 @@ WSL2が入っていてDocker DesktopをWSL2 engineで動作させていること
 ```
 
 複数configが作られるが基本的にこれだけでよい。
+
+### redis
+
+redisを追加した。/volumes/source にindex.phpを追加してテスト。
+
+```php
+<?php
+try{
+    $redis = new Redis();
+    $redis->connect('192.168.200.104', 6379);
+    $redis->select(1);
+    $redis->set('hogehoge', 'fugafuga');
+    $val = $redis->get('hogehoge');
+    echo $val;
+}catch(Exeption $ex){
+    echo 'error' . '<br>' ;
+    var_dump($ex);
+}
+```
+
+問題なくKVSにset/getできているのを確認。
 
 ### up
 
